@@ -1,9 +1,12 @@
 from autoaddress20 import Autoaddress
+from os import getenv
+from dotenv import load_dotenv
 
-api_key = "insert dev key here"        # Development key
-#api_key = "insert prod key here"       # Production key
+load_dotenv()
+api_key = getenv('AUTOADDRESS_APIKEY_DEV')        # Development key
+#api_key = getenv('AUTOADDRESS_APIKEY_PROD')      # Production key
 
 a = Autoaddress(api_key)
-a.FindAddress("insert test address element here")
+a.FindAddress(getenv('TEST_ADDRESS'))
 print(a.address)
 
